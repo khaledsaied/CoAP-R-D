@@ -397,9 +397,8 @@
 % was not built to handle multiple paragraphs
 %
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
+\author{Bilal~Kais,~\IEEEmembership{M.Sc.~Student,~Aarhus~University~Engineering Department,}
+        and~Khaled~Saied,~\IEEEmembership{M.Sc.~Student,~Aarhus~University~Engineering Department}% <-this % stops a space
 \thanks{M. Shell was with the Department
 of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
 GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this % stops a space
@@ -457,19 +456,7 @@ GA, 30332 USA e-mail: (see http://www.michaelshell.org/contact.html).}% <-this %
 % make the title area
 \maketitle
 
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
-\begin{abstract}
-The abstract goes here.
-\end{abstract}
-
-% Note that keywords are not normally used for peerreview papers.
-\begin{IEEEkeywords}
-Communications Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
-\end{IEEEkeywords}
-
-
-
+\input{abstract}
 
 
 
@@ -486,7 +473,7 @@ Communications Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 
 
 %\section{Introduction}
-\input{Introduction}
+\input{introduction}
 % The very first letter is a 2 line initial drop letter followed
 % by the rest of the first word in caps.
 % 
@@ -496,31 +483,12 @@ Communications Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 % form to use if you need the single drop letter followed by
 % normal text (unknown if ever used by the IEEE):
 % \IEEEPARstart{A}{}demo file is ....
-% 
-% Some journals put the first two words in caps:
-% \IEEEPARstart{T}{his demo} file is ....
-% 
-% Here we have the typical use of a "T" for an initial drop letter
-% and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE Communications Society journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
 
-\hfill mds
- 
-\hfill August 26, 2015
+\input{coap-extensions}
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\input{experiments}
 
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\input{discussion}
 
 
 % An example of a floating figure using the graphicx package.
@@ -621,7 +589,7 @@ Subsubsection text here.
 
 
 %\section{Conclusion}
-\input{Conclusion}
+\input{conclusion}
 
 
 
@@ -694,6 +662,10 @@ The authors would like to thank...
 \bibitem{IEEEhowto:kopka}
 H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
   0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
+
+\bibitem{IEEEhowto:kopka}
+H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
+0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
 
 \end{thebibliography}
 
