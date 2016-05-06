@@ -12,12 +12,15 @@ Previously a research has been done in the IoTivity framework which operates as 
 
 IoTivity made use of the CoAP protocol as the only application protocol. 
 A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{iotivity1.1}. The solution was based on a newer draft for CoAP \cite{coapTCP} which presents a modified CoAP that runs over TCP instead of UDP \cite{coapUDP}.
+The TCP protocol is more complex compared with the UDP protocol and thus it is not easy to employ on constrained devices. In this paper it will be investigated if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative and quantitative analytic method.
 
-\begin{quote}
-	"Compared with UDP protocol, TCP protocol is more complex which makes it not easy to employ on resource-constrained devices. Now, most of IoT use UDP protocol." \cite{TCPvsUDP}
-\end{quote}
-In the original version of CoAP, UDP was chosen as a transport protocol and therefore it was unexpected to see a draft from CoAP where TCP is chosen as a transport protocol instead of UDP.
-IETF has published a draft in July 2014 presenting a publish-subscribe broker that can be used between CoAP clients. An advantage with the publish-subscribe paradigm is that the constrained devices can avoid to function as servers and can thereby sleep the most of time.
+
+This research will  for implementing a more complex transport protocol on the lightweight application protocol CoAP which already has UDP implemented.
+
+This research will focus on 
+
+%BROKER
+Engineering Task Force (IETF) has published a draft in July 2014 presenting a publish-subscribe broker that can be used between CoAP clients. An advantage with the publish-subscribe paradigm is that the constrained devices can avoid to function as servers and can thereby sleep the most of time.
 
 CoAP is a reasonable choice for Device-to-Device communication,  but it is also a possible choice for Device-to-Cloud communication though it has some limitations which are handled differently by the three CoAP setups.
 
