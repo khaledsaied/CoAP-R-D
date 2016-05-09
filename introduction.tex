@@ -14,14 +14,9 @@ IoTivity made use of the CoAP protocol as the only application protocol.
 A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{iotivity1.1}. The solution was based on a newer draft for CoAP \cite{coapTCP} which presents a modified CoAP that runs over TCP instead of UDP \cite{coapUDP}.
 The TCP protocol is more complex compared with the UDP protocol and thus it is in general not easy to employ on constrained devices.
 
-% More details from papers about tcp vs udp
-In \cite{TCPvsUDP}
+In \cite{TCPvsUDP} a performance evaluation of TCP and UDP is done on wireless multihop networks. The results of the evaluation shows clearly that TCP is a more power consuming protocol than UDP. 
+% More details from papers about tcp vs udp memory consumption
 
-In this paper it will be investigated if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative and quantitative analytic method with focus on memory and energy consumption. 
+In this paper it will be investigated if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative method, where the focus is on significant architectural differences, and a quantitative analytic method with focus on memory and energy consumption. 
 
-% BROKER
-Engineering Task Force (IETF) has published a draft in July 2014 presenting a publish-subscribe broker that can be used between CoAP clients. An advantage with the publish-subscribe paradigm is that the constrained devices can avoid to function as servers and can thereby sleep the most of time.
-
-CoAP is a reasonable choice for Device-to-Device communication,  but it is also a possible choice for Device-to-Cloud communication though it has some limitations which are handled differently by the three CoAP setups.
-
-The purpose of this paper is to find the most optimal way for connecting constrained devices to the Cloud by investigating and comparing the three different presented variations of the CoAP protocol. The rest of this paper is structured as follows.  Section 2 presents... . Section 3 ... . Section 4 discusses the results ... . Section 5 concludes the paper.     
+The rest of this paper is structured as follows.  Section 2 presents the UDP and TCP versions of CoAP protocol. Section 3 provides a qualitative comparison. Section 4 provides a quantitative analytic comparison of the two protocols. Section 4 discusses the results and concludes the paper.     
