@@ -1,20 +1,21 @@
 \section{Introduction}
-The Internet of Things (IoT) is one of the larger focus areas in today's research of newer computer technology. One definition for IoT is interconnection of computing devices embedded in everyday objects via the Internet, enabling them to send and receive data.
+The Internet of Things (IoT) is one of the larger focus areas in today's research of newer computer 6technology. One definition for IoT is interconnection of computing devices embedded in everyday objects via the Internet, enabling them to send and receive data.
 
-According to Cisco, the amount of interconnected devices will be 50 billion by 2020 ‎\cite{cisco} 
+According to Cisco, the amount of interconnected devices will be 50 billion by 2020 \cite{cisco}.
 
 \IEEEPARstart{C}{\MakeLowercase{onstrained}} devices are an essential part of IoT and therefore there is focus on developing lightweight protocols which enables different connectivity models for constrained devices.  
 CoAP is one of the emerging lightweight application protocols which is designed for machine-to-machine (M2M) applications for use in constrained environments.   
 
-Previously a research has been done in the IoTivity framework which operates as a middleware trying to solve interoperability issues in the IoT \cite{interoperabilityChallenge}. Results from the research shows that IoTivity does not have the capability to communicate with the cloud in an appropriate way. 
+Previously research has been done in the IoTivity framework which operates as a middleware trying to solve interoperability issues in the IoT \cite{interoperabilityChallenge}. Interoperability is about making IoT devices able to connect to any other device or system independent of the used technologies and exchange information as desired, and this area has if solved a potential great economic impact \cite{McKinsey}. 
+Results from the research shows that IoTivity does not have the capability to communicate with the cloud in an appropriate way. 
 
 IoTivity made use of the CoAP protocol as the only application protocol. 
 A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{iotivity1.1}. The solution was based on a newer draft for CoAP \cite{coapTCP} which presents a modified CoAP that runs over TCP instead of UDP \cite{coapUDP}.
-The TCP protocol is more complex compared with the UDP protocol and thus it is in general not easy to employ on constrained devices.
+The TCP protocol is more complex compared with the UDP protocol and thus it is in general not easy to employ on constrained devices. 
 
-In \cite{TCPvsUDP} a performance evaluation of TCP and UDP is done on wireless multihop networks. The results of the evaluation shows clearly that TCP is a more power consuming protocol than UDP. 
+In \cite{TCPvsUDP} a performance evaluation of TCP and UDP is done on wireless multihop networks. The results of the evaluation shows clearly that TCP is a more power consuming protocol than UDP. Moreover it shows that UDP is faster and can send more data packets than TCP.
 % More details from papers about tcp vs udp memory consumption
 
-In this paper it will be investigated if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative method, where the focus is on significant architectural differences, and a quantitative analytic method with focus on memory and energy consumption. 
+In this paper we will investigate if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative method, where the focus is on significant architectural differences, and a quantitative analytic method with focus on memory and energy consumption. 
 
 The rest of this paper is structured as follows.  Section 2 presents the UDP and TCP versions of CoAP protocol. Section 3 provides a qualitative comparison. Section 4 provides a quantitative analytic comparison of the two protocols. Section 5 discusses the results and concludes the paper.     
