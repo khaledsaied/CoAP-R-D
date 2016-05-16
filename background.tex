@@ -6,9 +6,10 @@
 \subsection{Middleware as Solution for Interoperability}
 Middleware has proven to be a solution in many environments for ensuring interoperability within distributed systems. In IoT the same way of thinking has been adapted. 
 Several projects in collaboration between big companies are currently developing  middleware solutions for IoT. 
-One of the most well-known solution is IoTivity.
+One of the most well-known solution is IoTivity which supports CoAP as an application protocol.
  
-In \cite{interoperabilityChallenge} 
+In \cite{interoperabilityChallenge} the IoTivity framework is evaluated according to defined requirements among others the connectivity where different connectivity models are evaluated. These connectivity models are device-to-device, device-to-gateway, and device-to-cloud. Results from the research shows that IoTivity does not have the capability to communicate with the cloud in an appropriate way. 
+
 %I background kan man også skrive lidt om IoTivity og vores tidligere arbejde
 IoTivity...
 
@@ -16,6 +17,15 @@ IoTivity...
 ...
 
 \subsection{Constrained Application Protocol (CoAP)}
-CoAP over UDP vs CoAP over TCP
+CoAP is a lightweight web transfer protocol specialized for use with constrained devices. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
+CoAP runs over the UDP transport protocol which helps keeping the message overhead small and thereby limits the need for fragmentation.
+CoAP can be reliable even though UDP is used as transport protocol because CoAP handles the reliability and congestion control by enabling the message type Confirmable (CON).
+ 
+For security the DTLS which is based on the stream-oriented Transport Layer Security (TLS-KHALED) is used.
+ 
+--UDP can only transfer small amounts of data
+\subsubsection{CoAP over TCP}
 
 Background: Beskrivelse af de to protokoller, forholdsvis kort (undlade detaljer, som ikke er relevant for artiklen)
+
+
