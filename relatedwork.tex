@@ -8,14 +8,9 @@ In \cite{giannoulis2009tcp} a performance evaluation of TCP and UDP is done on w
 %comparison of Ligthweight protocols
 %Another area which is related is the comparison of  
 Lightweight protocols are important for constrained environments, and the comparison of it has been in focus in recent research.
-MQTT \cite{bandyopadhyay2013lightweight}
+CoAP and MQTT are compared in \cite{bandyopadhyay2013lightweight} in an IoT context using constrained gateway devices. The results of this comparison shows that CoAP is most efficient in terms of energy consumption as well as bandwidth.
 
+Another research \cite{de2013comparison} also compares CoAP with MQTT but for Smartphone usage. The comparison shows that CoAP, in certain application scenarios, can be a valid alternative for MQTT, which already has been used for Smartphone solutions.
 
-%Comparison of protocols is related work
-
-%TCPvsUDP 
-%TCPvsUDP in lightweight protocols
-
-
-
-%	The comparison of lightweight communication protocols has received attention by recent literature work. In [11], Davis et al. reported on the performance comparison between MQTT- S [3], a specification of MQTT adapted to the characteristics of low-power WSN environment, and CoAP. Our previous work in [9] presented the comparison between CoAP and HTTP in WSNs and demonstrated how CoAP improves the performance of constrained devices such as sensors and actuators. In [12], high level features (such as messaging capabilities, security, reliability, availability of implementations...) of MQTT and Advanced Message Queuing Protocol (AMQP) are evaluated and compared. A similar approach has been followed in [13] in order to compare MQTT and HTTP features. All the aforementioned comparisons of application protocols have not considered the use of smartphone but have only been limited in using lightweight application protocols in sensors and actuators. To the best of our knowledge, smartphone platforms have only been considered in [10], where Vergara et al describe a preliminary experimental evaluation of MQTT against HTTP. The comparison shows that the use of MQTT in Android devices decreases the energy consumption compared to HTTP in location based applications. To the best of our knowledge, the comparison between CoAP and MQTT has only been addressed in [6]. The comparison shows that CoAP lead to a lower bandwidth utilization as a consequence of the use of UDP instead of TCP as transport protocol. However, the comparison only considers the case in which the two protocols run on constrained battery operated gateways. They do not consider neither sensors and actuators nor smartphones. . 
+CoAP over TCP is new and few has worked with it, but until now no one has made a comparison between it and the original CoAP which runs over UDP. 
+Furthermore, the comparisons of the UDP and TCP did not consider the aspect of constrained environments and the suitability of running lightweight protocols.
