@@ -2,8 +2,10 @@
 Here goes the quantitative comparison.
 
 \subsection{Experiment Setup}
+The experiment is setup with help of c...
+The experiment is done  for 30 minutes with an interval of 30 seconds (without packet loss).
 
-\subsubsection{Memory consumption}
+\textbf{Memory consumption}\\
 Flyt den del til et afsnit med prototype implementation (før resultaterne)
 How much memory usage...
 
@@ -107,6 +109,13 @@ xtick=data,
 \subsection{Packet-loss}
 Use the NetEM tool fore emulating package-loss.
 More lost packet = more packet to send = more energy consumption
+This is the \figurename \ref{coapovertcploss}
+\begin{figure}[bh]
+	\centering
+	\includegraphics[width=3.5in]{gfx/coapovertcp25loss}
+	\caption{Latency for CoAP over TCP with 25 \% packet loss.}
+	\label{coapovertcploss}
+\end{figure}
 
 \subsection{Latency}
 Measure RTT values %which is the time from establishing the connection to receiving the acknowledgement.
@@ -114,18 +123,23 @@ More latency = less time to sleep = more energy consumption
 
 Spredning/fordeling/varians af delay variations 
 
-\begin{tikzpicture}
-\begin{axis}[
-]
-% density of Normal distribution:
-\addplot[
-red,
-domain=-3e-3:3e-3,
-samples=201,
-]
-{exp(-x^2 / (2e-3^2)) / (1e-3 * sqrt(2*pi))};
-\end{axis}
-\end{tikzpicture}
+\subsubsection{CoAP over TCP Latency}
+This is the \figurename \ref{fig_sim}
+\begin{figure}[bh]
+\centering
+\includegraphics[width=3.5in]{gfx/coapovertcp}
+\caption{Latency for CoAP over TCP without packet loss.}
+\label{fig_sim}
+\end{figure}
+
+\subsubsection{Confirmable (CON) CoAP Latency}
+This is the \figurename \ref{fig_sim2}
+\begin{figure}[bht]
+	\centering
+	\includegraphics[width=3.5in]{gfx/coapoverudp}
+	\caption{Latency for CON CoAP without packet loss..}
+	\label{fig_sim2}
+\end{figure}
 
 
 
