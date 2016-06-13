@@ -10,13 +10,13 @@ Previously research has been done in the IoTivity framework which operates as a 
 Results from the research shows that IoTivity does not have the capability to communicate with the cloud in an appropriate way. 
 
 IoTivity made use of the CoAP protocol as the only application protocol. 
-A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{iotivity1.1}. The solution was based on a newer draft for CoAP \cite{coapTCP} which presents a modified CoAP that runs over TCP instead of UDP \cite{coapUDP}.
+A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{iotivity1.1}. The solution was based on a newer draft for CoAP \cite{ietf-core-coap-tcp-tls-02} which presents a modified CoAP that runs over TCP instead of UDP \cite{coapUDP}.
 The TCP protocol is more complex compared with the UDP protocol and thus it is in general more resource consuming \cite{giannoulis2009tcp}.
 %it is in general not easy to employ on constrained devices. 
 
 % More details from papers about tcp vs udp memory consumption
 
 % Bilal har en ide som han ikke ønsker!
-In this paper we will investigate if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a qualitative method, where the focus is on significant architectural differences, and a quantitative analytic method with focus on memory and energy consumption. 
+In this paper we will investigate if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP when CoAP is used for constrained IoT devices. This investigation will be done by analysing the two versions of the CoAP protocol using a \textcolor{red}{qualitative method, where the focus is on significant architectural differences}, and a quantitative analytic method with focus on memory and energy consumption. 
 
 The rest of this paper is structured as follows.  Section 2 presents the UDP and TCP versions of CoAP protocol. Section 3 provides a qualitative comparison. Section 4 provides a quantitative analytic comparison of the two protocols. Section 5 discusses the results and concludes the paper.     
