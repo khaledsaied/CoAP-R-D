@@ -145,33 +145,34 @@ With help of the measurements the energy consumption is calculated for the two s
 
 \subsection{Latency}
 In the following experiments the latency (RTT) is measured for the two setups in two scenarios, one with a noiseless channel and the other with a simulated noisy channel. The latency has an impact on the energy consumption. A long latency means less sleeping time which is a crucial element for a constrained to be able to save energy.
-The noisy channel is emulated using the NetEM tool which provides Network Emulation functionality for testing protocols.
+The noisy channel is emulated using the NetEM tool which provides Network Emulation functionality for testing protocols \cite{netem19:online}. 
 
-%Measure RTT values %which is the time from establishing the connection to receiving the acknowledgement.
+These experiments are all done where the client transmits a total number of 60 transmissions. The RTT is calculated from the time a packet is sent until it receives the associated acknowledgement.
+
+%Measure RTT values %which is the time from sending a package to receiving the acknowledgement.
 %More latency = less time to sleep = more energy consumption
 %Spredning/fordeling/varians af delay variations 
 
-\subsubsection{CoAP over TCP Latency}
-This is the \figurename \ref{fig_sim}
-\begin{figure}[bh]
-\centering
-\includegraphics[width=3in]{gfx/coapovertcp}
-\caption{Latency for CoAP over TCP without packet loss.}
-\label{fig_sim}
-\end{figure}
-
-\subsubsection{Confirmable (CON) CoAP Latency}
-This is the \figurename \ref{fig_sim2}
+On \figurename{\ref{fig:coapconlatency}} and \figurename{\ref{fig:coaptcplatency}} the results of the first scenario with a noiseless channel for the respectively CoAP over UDP and CoAP over TCP setup are plotted into a histogram. 
 \begin{figure}[bht]
 	\centering
 	\includegraphics[width=3in]{gfx/coapoverudp}
-	\caption{Latency for CON CoAP without packet loss..}
-	\label{fig_sim2}
+	\caption{Latency for CoAP over UDP in a noiseless channel.}
+	\label{fig:coapconlatency}
+\end{figure}
+\begin{figure}[bht]
+	\centering
+	\includegraphics[width=3in]{gfx/coapovertcp}
+	\caption{Latency for CoAP over TCP in a noiseless channel.}
+	\label{fig:coaptcplatency}
 \end{figure}
 
-%Packet-loss
-Use the NetEM tool fore emulating package-loss.
-More lost packet = more packet to send = more energy consumption
+
+%TCP direct from transport layer therefore faster
+%UDP from application layer therefore slower
+
+
+%More lost packet = more packet to send = more energy consumption
 This is the \figurename \ref{coapovertcploss}
 \begin{figure}[bh]
 	\centering
