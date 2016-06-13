@@ -98,7 +98,7 @@ With help of the measurements the energy consumption is calculated for the three
 This experiment is done where the client transmits randomly generated numbers with an interval of 30 seconds, simulating temperature measurements, for a timespan of 30 minutes.
 It is a complete scenario because the whole communication scenario, from it is initialised until it is terminated, is captured. The caption includes both the transmitted and the received packets.
 
-\figurename{\ref{fig:completescenario}} shows the results for a complete scenario, where CoAP (NON) is omitted as it is not comparable with the two other CoAP implementations which both awaits acknowledgements from the receiver. 
+\figurename{\ref{fig:completescenario}} shows the results for a complete scenario, where CoAP (NON) is omitted as it is not comparable with the two reliable CoAP versions, CoAP (CON) and CoAP over TCP. 
 \begin{figure}[bht]
 	\begin{tikzpicture}
 	\begin{axis}[
@@ -137,31 +137,17 @@ It is a complete scenario because the whole communication scenario, from it is i
 	\label{fig:completescenario}
 \end{figure}
 
-
-\textbf{En god ide er at maale energiforbruge / beregne det i joule. Giver et konkret svar om den kan bruges i specifikke typer af constraint devices}
-
-
-\subsection{Packet-loss}
-Use the NetEM tool fore emulating package-loss.
-More lost packet = more packet to send = more energy consumption
-This is the \figurename \ref{coapovertcploss}
-\begin{figure}[bh]
-	\centering
-	\includegraphics[width=3.5in]{gfx/coapovertcp25loss}
-	\caption{Latency for CoAP over TCP with 25 \% packet loss.}
-	\label{coapovertcploss}
-\end{figure}
-
-This is the \figurename \ref{coapoverudploss}
-\begin{figure}[bh]
-	\centering
-	\includegraphics[width=3.5in]{gfx/coapoverudp25loss}
-	\caption{Latency for CON CoAP with 25 \% packet loss.}
-	\label{coapoverudploss}
-\end{figure}
-
+It is clear from the results that CoAP over TCP has a significantly larger overhead than CoAP (CON).
+ 
+With help of the measurements the energy consumption is calculated for the two scenarios. The calculation is shown below:
+%calculation...
+%\textbf{En god ide er at maale energiforbruge / beregne det i joule. Giver et konkret svar om den kan bruges i specifikke typer af constraint devices}
 
 \subsection{Latency}
+In the following experiments the latency (RTT) is measured for the two setups in two scenarios, one with a noiseless channel and the other with a simulated noisy channel. The latency has an impact on the energy consumption. A long latency means less sleeping time which is a crucial element for a constrained to be able to save energy.
+  
+This is done to evaluate on the energy consumption of the CoAP protocols. 
+
 Measure RTT values %which is the time from establishing the connection to receiving the acknowledgement.
 More latency = less time to sleep = more energy consumption
 
@@ -171,7 +157,7 @@ Spredning/fordeling/varians af delay variations
 This is the \figurename \ref{fig_sim}
 \begin{figure}[bh]
 \centering
-\includegraphics[width=3.5in]{gfx/coapovertcp}
+\includegraphics[width=3in]{gfx/coapovertcp}
 \caption{Latency for CoAP over TCP without packet loss.}
 \label{fig_sim}
 \end{figure}
@@ -180,10 +166,27 @@ This is the \figurename \ref{fig_sim}
 This is the \figurename \ref{fig_sim2}
 \begin{figure}[bht]
 	\centering
-	\includegraphics[width=3.5in]{gfx/coapoverudp}
+	\includegraphics[width=3in]{gfx/coapoverudp}
 	\caption{Latency for CON CoAP without packet loss..}
 	\label{fig_sim2}
 \end{figure}
 
+%Packet-loss
+Use the NetEM tool fore emulating package-loss.
+More lost packet = more packet to send = more energy consumption
+This is the \figurename \ref{coapovertcploss}
+\begin{figure}[bh]
+	\centering
+	\includegraphics[width=3in]{gfx/coapovertcp25loss}
+	\caption{Latency for CoAP over TCP with 25 \% packet loss.}
+	\label{coapovertcploss}
+\end{figure}
 
+This is the \figurename \ref{coapoverudploss}
+\begin{figure}[bh]
+	\centering
+	\includegraphics[width=3in]{gfx/coapoverudp25loss}
+	\caption{Latency for CON CoAP with 25 \% packet loss.}
+	\label{coapoverudploss}
+\end{figure}
 
