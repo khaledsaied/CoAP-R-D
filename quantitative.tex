@@ -89,7 +89,8 @@ This experiment is done where the client transmits a single packet, containing a
 It can be observed that CoAP over TCP overall has a lager packet than CoAP over UDP. This is primarily because of the TCP layer which has a 12 byte bigger overhead than UDP.
 Though the CoAP layer in the CoAP over TCP packet is 1 byte shorter than CoAP over UDP, because of the MessageID-field (2 byte) is removed and replaced with the Length-field (1 byte).
 
-With help of the measurements the energy consumption is calculated for the three packets.
+With help of the measurements the energy consumption is calculated for the three packets. The calculation is shown below:
+%calculation...
 
 %TCP minimum header size is 20 bytes, but because of using options among others timestamp option, it is measured to 32 bytes. Timestamp option is enabled par default on Ubuntu 16.10.
 
