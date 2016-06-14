@@ -169,6 +169,9 @@ On \figurename{\ref{fig:coapconlatency}} and \figurename{\ref{fig:coaptcplatency
 
 From the results it is observed  that the latency varies from 0 seconds up to 3 seconds for CoAP over UDP and from 0 seconds up to 0.4 seconds for CoAP over TCP. Thereby it is clear that CoAP over TCP has a faster round trip than CoAP over UDP. 
 
+These results can be explained because of 
+There is an important difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
+
 %TCP direct from transport layer therefore faster
 %UDP from application layer therefore slower
 
