@@ -1,8 +1,5 @@
 \section{Quantitative Comparison}
-Here goes the quantitative comparison.
-
-\subsection{Experiment Setup}
-The different setups of the experiments are all based on the IoTivity framework running on two Linux (Ubuntu) machines. These two machines are both wireless coupled to a local network via a router. The test case for the experiments is meant to represent a constrained device, acting as a client, updating the temperature on a cloud server with a specific interval of time. 
+The quantitative comparison is done by help of several experiments on the two versions of the CoAP protocol. For these experiments different setups are made, all based on the IoTivity framework running on two Linux (Ubuntu) machines. These two machines are both wireless coupled to a local network via a router. The test case for the experiments is meant to represent a constrained device, acting as a client, updating the temperature on a cloud server with a specific interval of time. 
 
 Linux is chosen to represent a constrained device as it is necessary to be able to easily monitor the communication from the client side of view.
 
@@ -186,4 +183,4 @@ On \figurename{\ref{fig:coapoverudploss}} and \figurename{\ref{fig:coapovertcplo
 	\label{fig:coapovertcploss}
 \end{figure}
 
-The results for communication in a noisy channel also confirms the previous observations, showing that CoAP over TCP  overall performs better than CoAP over UDP. 
+The results for communication in a noisy channel also confirms the previous observations, showing that CoAP over TCP overall has a better round trip than CoAP over UDP. %It is also means that the CoAP over UDP will perform worse in noisy channels compared to it's performance in noiseless channel.
