@@ -153,7 +153,7 @@ These experiments are all done where the client transmits a total number of 60 t
 %More latency = less time to sleep = more energy consumption
 %Spredning/fordeling/varians af delay variations 
 
-On \figurename{\ref{fig:coapconlatency}} and \figurename{\ref{fig:coaptcplatency}} the results of the first scenario with a noiseless channel for the respectively CoAP over UDP and CoAP over TCP setup are plotted into a histogram. 
+On \figurename{\ref{fig:coapconlatency}} and \figurename{\ref{fig:coaptcplatency}} the results of the first scenario with a noiseless channel for the respectively CoAP over UDP and CoAP over TCP setup are plotted into two histograms. 
 \begin{figure}[bht]
 	\centering
 	\includegraphics[width=3in]{gfx/coapoverudp}
@@ -169,27 +169,21 @@ On \figurename{\ref{fig:coapconlatency}} and \figurename{\ref{fig:coaptcplatency
 
 From the results it is observed  that the latency varies from 0 seconds up to 3 seconds for CoAP over UDP and from 0 seconds up to 0.4 seconds for CoAP over TCP. Thereby it is clear that CoAP over TCP has a faster round trip than CoAP over UDP. 
 
-These results can be explained because of 
-There is an important difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
-
-%TCP direct from transport layer therefore faster
-%UDP from application layer therefore slower
-
+These results can be explained because of a significant difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
 
 %More lost packet = more packet to send = more energy consumption
-This is the \figurename \ref{coapovertcploss}
-\begin{figure}[bh]
-	\centering
-	\includegraphics[width=3in]{gfx/coapovertcp25loss}
-	\caption{Latency for CoAP over TCP with 25 \% packet loss.}
-	\label{coapovertcploss}
-\end{figure}
-
-This is the \figurename \ref{coapoverudploss}
+On \figurename{\ref{fig:coapoverudploss}} and \figurename{\ref{fig:coapovertcploss}} the results of the second scenario with an emulated noisy channel, with 25\% packet-loss, for the respectively CoAP over UDP and CoAP over TCP setup are plotted into two histograms. 
 \begin{figure}[bh]
 	\centering
 	\includegraphics[width=3in]{gfx/coapoverudp25loss}
-	\caption{Latency for CON CoAP with 25 \% packet loss.}
-	\label{coapoverudploss}
+	\caption{Latency for CON CoAP with 25\% packet loss.}
+	\label{fig:coapoverudploss}
+\end{figure}
+\begin{figure}[bh]
+	\centering
+	\includegraphics[width=3in]{gfx/coapovertcp25loss}
+	\caption{Latency for CoAP over TCP with 25\% packet loss.}
+	\label{fig:coapovertcploss}
 \end{figure}
 
+The results for communication in a noisy channel also confirms the previous observations, showing that CoAP over TCP  overall performs better than CoAP over UDP. 
