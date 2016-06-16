@@ -1,7 +1,7 @@
 \section{Background}
 
 \subsection{Constrained Application Protocol}
-CoAP is a lightweight web transfer protocol specialized for use with constrained devices. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
+CoAP is a lightweight web transfer protocol specialized for use with constrained devices and is currently a Proposed Standard RFC made by The Internet Engineering Task Force (IETF) \cite{Inter93:online}. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
 CoAP runs over the UDP transport protocol which helps keeping the message overhead small and thereby limits the need for fragmentation.
 CoAP can be reliable even though UDP is used as transport protocol because CoAP handles the reliability and congestion control by enabling the message type Confirmable (CON). 
 The use of confirmable message means that it requires an acknowledgement from the receiver of the message. 
@@ -22,25 +22,39 @@ The header contains following fields:
 	\item Type (T) indicates the type of the message e.g. non-confirmable.
 	\item Token length (TKL) indicates the length of Token field.
 	\item Code indicates the status of the response or the request method. 
-	\item Message ID is an identifier for among others detection of duplicated messages.
+	\item Message ID is an identifier for relating acknowledgements to CON-messages and detection of duplicated messages as well.
 \end{list}
 
 
+%not asynchronous - has to wait for an aknowledged
 
-
-not asynchronous - has to wait for an aknowledged
-
-Headeren...
-
-
-
-For security the Datagram Transport Layer Security (DTLS), which is based on the stream-oriented Transport Layer Security (TLS), is used.
+%For security the Datagram Transport Layer Security (DTLS), which is based on the stream-oriented Transport Layer Security (TLS), is used.
 
 %--UDP can only transfer small amounts of data
 
 \subsection{Constrained Application Protocol over TCP}
-CoAP over TCP is an active internet draft made by The Internet Engineering Task Force (IETF) \cite{IETF}. 
+CoAP over TCP is an Active Internet-Draft made by IETF. 
 In this draft it is proposed to use TCP as a transport protocol instead of UDP.
+CoAP over TCP is made for use for certain environments that benefits from using CoAP directly over a reliable communication channel.
+
+CoAP over TCP is based on the original version of CoAP with some modifications. 
+The use of TCP as a transport layer protocol removes the need for handling reliability, congestion control, and other features, which already exist in TCP, at the CoAP level.
+Since it is not necessary to handle reliability at the CoAP level, all the communication in the CoAP over TCP are by use of non-confirmable (NON) messages and thereby the fields, Type (T) and Message ID, are unnecessary and thus removed from the header. 
+TCP namely also handles duplication detection .
+Moreover the version (ver) is also removed from the header.
+
+Two new fields are added to the CoAP over TCP header as illustrated in \figurename{\ref{fig:msgformatcoapovertcp}}.
+\begin{figure}[bht]
+	\centering
+	\includegraphics[width=3.5in]{gfx/msgformat-coapovertcp}
+	\caption{The CoAP over TCP message format with 8-bit Length in header.}
+	\label{fig:msgformatcoapovertcp}
+\end{figure}
+
+These fields are used to define the 
+
+
+There are made changes in the original header for CoAP in this draft. These changes are that 
 
 TLS
 
