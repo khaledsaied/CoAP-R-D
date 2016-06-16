@@ -1,16 +1,16 @@
 \section{Introduction}
-The Internet of Things (IoT) is one of the larger focus areas in today's research of newer computer 6technology. One definition for IoT is interconnection of computing devices embedded in everyday objects via the Internet, enabling them to send and receive data.
+The Internet of Things (IoT) is one of the larger focus areas in today's research of newer computer technology. One definition for IoT is interconnection of computing devices embedded in everyday objects via the Internet, enabling them to send and receive data.
 
 According to Cisco, the amount of interconnected devices will be 50 billion by 2020 \cite{ciscoiot:online} \cite{Inter74:online}.
 
 \IEEEPARstart{C}{\MakeLowercase{onstrained}} devices are an essential part of IoT and therefore there is focus on developing lightweight protocols which enables different connectivity models for constrained devices.  
-CoAP is one of the emerging lightweight application protocols which is designed for machine-to-machine (M2M) applications for use in constrained environments.   
+Constrained Application Protocol (CoAP) \cite{rfc7252} is one of the emerging lightweight application protocols which is designed for machine-to-machine (M2M) applications for use in constrained environments.   
 
-Previously research has been done in the IoTivity framework which operates as a middleware trying to solve interoperability issues in the IoT \cite{interoperabilityChallenge}. Interoperability is about making IoT devices able to connect to any other device or system independent of the used technologies and exchange information as desired, and this area has if solved a potential great economic impact \cite{Unloc34:online}. 
+Previously research has been done \cite{interoperabilityChallenge} in the IoTivity framework which operates as a middleware trying to solve interoperability issues in the IoT. Interoperability is about making IoT devices able to connect to any other device or system independent of the used technologies and exchange information as desired, and this area has a potential great economic impact \cite{Unloc34:online}. 
 Results from the research shows that IoTivity does not have the capability to communicate with the cloud in an appropriate way. 
 
-IoTivity made use of the CoAP protocol as the only application protocol. 
-A new version of the IoTivity framework has been published recently, where they have implemented a solution to connect IoT devices to the Cloud \cite{IoTiv3:online}. The solution was based on a newer draft for CoAP \cite{ietf-core-coap-tcp-tls-02} which presents a modified CoAP that runs over TCP instead of UDP.
+IoTivity make use of the CoAP protocol as the only application protocol. 
+A new version of the IoTivity framework has been published recently, where the community behind IoTivity has implemented a solution to connect IoT devices to the Cloud \cite{IoTiv3:online}. The solution was based on a newer draft for CoAP \cite{ietf-core-coap-tcp-tls-02} which presents a modified CoAP that runs over TCP instead of UDP, referenced as CoAP over TCP.
 The TCP protocol is more complex compared with the UDP protocol and thus it is in general more resource consuming \cite{giannoulis2009tcp}.
 %it is in general not easy to employ on constrained devices. 
 
