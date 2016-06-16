@@ -1,5 +1,62 @@
 \section{Background}
 
+\subsection{Constrained Application Protocol}
+CoAP is a lightweight web transfer protocol specialized for use with constrained devices. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
+CoAP runs over the UDP transport protocol which helps keeping the message overhead small and thereby limits the need for fragmentation.
+CoAP can be reliable even though UDP is used as transport protocol because CoAP handles the reliability and congestion control by enabling the message type Confirmable (CON). 
+The use of confirmable message means that it requires an acknowledgement from the receiver of the message. 
+To limit the number of simultaneous unacknowledged and confirmable messages, congestion control is implemented by use of the back-off algorithm.
+
+The message format for CoAP, illustrated in \figurename{\ref{fig:msgformatcoap}}, contains among others a header with a length of 4 bytes. 
+%a token for identifying the different requests, CoAP options, and payload. 
+\begin{figure}[bht]
+	\centering
+	\includegraphics[width=3.5in]{gfx/msgformat-coap}
+	\caption{The CoAP header.}
+	\label{fig:msgformatcoap}
+\end{figure}
+
+The header contains following fields: 
+\begin{list}{-}{}
+	\item Version (ver) indicates the version of the CoAP protocol.
+	\item Type (T) indicates the type of the message e.g. non-confirmable.
+	\item Token length (TKL) indicates the length of Token field.
+	\item Code indicates the status of the response or the request method. 
+	\item Message ID is an identifier for among others detection of duplicated messages.
+\end{list}
+
+
+
+
+not asynchronous - has to wait for an aknowledged
+
+Headeren...
+
+
+
+For security the Datagram Transport Layer Security (DTLS), which is based on the stream-oriented Transport Layer Security (TLS), is used.
+
+%--UDP can only transfer small amounts of data
+
+\subsection{Constrained Application Protocol over TCP}
+CoAP over TCP is an active internet draft made by The Internet Engineering Task Force (IETF) \cite{IETF}. 
+In this draft it is proposed to use TCP as a transport protocol instead of UDP.
+
+TLS
+
+TCP has less risk of being blocked by firewalls than UDP
+No lost packages/data
+Provides additional information about session life to NAT
+Long lifetime
+No need for handling reliability
+(Exchanges messages asynchronously even though it runs TCP)
+TLS
+Is the changes in the header compatible with the current CoAP implementation?
+
+
+Background: Beskrivelse af de to protokoller, forholdsvis kort (undlade detaljer, som ikke er relevant for artiklen)
+
+
 
 
 
@@ -19,33 +76,5 @@ HTTP
 
 MQTT
 
-
-
-\subsection{Constrained Application Protocol (CoAP)}
-CoAP is a lightweight web transfer protocol specialized for use with constrained devices. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
-CoAP runs over the UDP transport protocol which helps keeping the message overhead small and thereby limits the need for fragmentation.
-CoAP can be reliable even though UDP is used as transport protocol because CoAP handles the reliability and congestion control by enabling the message type Confirmable (CON).
- 
-For security the Datagram Transport Layer Security (DTLS) which is based on the stream-oriented Transport Layer Security (TLS) is used.
- 
---UDP can only transfer small amounts of data
-
-\subsubsection{CoAP over TCP}
-CoAP over TCP is an active internet draft made by The Internet Engineering Task Force (IETF) \cite{IETF}. 
-In this draft it is proposed to use TCP as a transport protocol instead of UDP.
-
-TLS
-   
-TCP has less risk of being blocked by firewalls than UDP
-No lost packages/data
-Provides additional information about session life to NAT
-Long lifetime
-No need for handling reliability
-(Exchanges messages asynchronously even though it runs TCP)
-TLS
-Is the changes in the header compatible with the current CoAP implementation?
-
-
-Background: Beskrivelse af de to protokoller, forholdsvis kort (undlade detaljer, som ikke er relevant for artiklen)
 
 
