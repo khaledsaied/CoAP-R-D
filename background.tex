@@ -51,7 +51,8 @@ Two new fields are added to the CoAP over TCP header as illustrated in \figurena
 	\label{fig:msgformatcoapovertcp}
 \end{figure}
 
-These fields are used to define the 
+These fields are, Len and Length, which are used to indicate information about the message length.  
+This addition was necessary because TCP supports message delimitation.
 
 
 There are made changes in the original header for CoAP in this draft. These changes are that 
