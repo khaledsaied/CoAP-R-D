@@ -54,7 +54,8 @@ Two new fields are added to the CoAP over TCP header as illustrated in \figurena
 These fields are, Len and Length, which are used to indicate information about the amount of data sent in form of payload/options.  
 This addition was necessary to take advantage of message delimitation supported by TCP.
 
-The use of TCP as a transport layer also makes it easier to avoid being blocked by firewalls.  
+%The use of TCP as a transport layer also makes it easier to avoid being blocked by firewalls.  
+The use of TCP as a transport layer also enables asynchronous message exchange, which makes it possible to transmit TCP requests simultaneously without the need for waiting for an acknowledgement. 
 
 %TLS
 %
