@@ -41,7 +41,7 @@ CoAP over TCP is based on the original version of CoAP with some modifications.
 The use of TCP as a transport layer protocol removes the need for handling reliability, congestion control, and other features, which already exist in TCP, at the CoAP level.
 Since it is not necessary to handle reliability at the CoAP level, all the communication in the CoAP over TCP are by use of non-confirmable (NON) messages and thereby the fields, Type (T) and Message ID, are unnecessary and thus removed from the header. 
 TCP namely also handles duplication detection .
-Moreover the version (ver) is also removed from the header.
+Moreover the version (ver) is also removed from the header. The reason for this change is not specified in the draft.
 
 Two new fields are added to the CoAP over TCP header as illustrated in \figurename{\ref{fig:msgformatcoapovertcp}}.
 \begin{figure}[bht]
@@ -51,45 +51,44 @@ Two new fields are added to the CoAP over TCP header as illustrated in \figurena
 	\label{fig:msgformatcoapovertcp}
 \end{figure}
 
-These fields are, Len and Length, which are used to indicate information about the message length.  
-This addition was necessary because TCP supports message delimitation.
+These fields are, Len and Length, which are used to indicate information about the amount of data sent in form of payload/options.  
+This addition was necessary to take advantage of message delimitation supported by TCP.
 
+The use of TCP as a transport layer also makes it easier to avoid being blocked by firewalls.  
 
-There are made changes in the original header for CoAP in this draft. These changes are that 
-
-TLS
-
-TCP has less risk of being blocked by firewalls than UDP
-No lost packages/data
-Provides additional information about session life to NAT
-Long lifetime
-No need for handling reliability
-(Exchanges messages asynchronously even though it runs TCP)
-TLS
-Is the changes in the header compatible with the current CoAP implementation?
-
-
-Background: Beskrivelse af de to protokoller, forholdsvis kort (undlade detaljer, som ikke er relevant for artiklen)
-
-
+%TLS
+%
+%TCP has less risk of being blocked by firewalls than UDP
+%No lost packages/data
+%Provides additional information about session life to NAT
+%Long lifetime
+%No need for handling reliability
+%(Exchanges messages asynchronously even though it runs TCP)
+%TLS
+%Is the changes in the header compatible with the current CoAP implementation?
+%
+%
+%Background: Beskrivelse af de to protokoller, forholdsvis kort (undlade detaljer, som ikke er relevant for artiklen)
 
 
 
-\subsection{Middleware as Solution for Interoperability}
-Middleware has proven to be a solution in many environments for ensuring interoperability within distributed systems. In IoT the same way of thinking has been adapted. 
-Several projects in collaboration between big companies are currently developing  middleware solutions for IoT and one of these solutions is IoTivity which supports CoAP as an application protocol.
- 
-In \cite{interoperabilityChallenge} the IoTivity framework is evaluated according to defined requirements among others the connectivity where different connectivity models are evaluated. These connectivity models are device-to-device, device-to-gateway, and device-to-cloud. Results from the evaluation of IoTivity shows that device-to-cloud communication within constrained devices is challenging.
-
-\subsection{Device-to-Cloud}
-Existing solutions for communicating with device-to-cloud are HTTP, MQTT, CoAP...etc.
-
-compare solutions....
 
 
-HTTP 
-
-MQTT
+%\subsection{Middleware as Solution for Interoperability}
+%Middleware has proven to be a solution in many environments for ensuring interoperability within distributed systems. In IoT the same way of thinking has been adapted. 
+%Several projects in collaboration between big companies are currently developing  middleware solutions for IoT and one of these solutions is IoTivity which supports CoAP as an application protocol.
+% 
+%In \cite{interoperabilityChallenge} the IoTivity framework is evaluated according to defined requirements among others the connectivity where different connectivity models are evaluated. These connectivity models are device-to-device, device-to-gateway, and device-to-cloud. Results from the evaluation of IoTivity shows that device-to-cloud communication within constrained devices is challenging.
+%
+%\subsection{Device-to-Cloud}
+%Existing solutions for communicating with device-to-cloud are HTTP, MQTT, CoAP...etc.
+%
+%compare solutions....
+%
+%
+%HTTP 
+%
+%MQTT
 
 
 
