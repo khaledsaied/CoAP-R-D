@@ -1,20 +1,24 @@
 \section{Discussion}
 The purpose of the comparison is to investigate if CoAP over TCP is qualified for use in constrained devices. The results of the bandwidth experiments shows that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP, for both the single packet transaction scenario and the complete communication scenario. This was expected as previous work has shown that TCP is more power consuming, which is most likely caused by the bandwidth.
+On the other hand the results of the latency experiments shows that CoAP over TCP has a much better latency than regular CoAP in both a noiseless channel and in a noisy channel. 
 
-Energy calculation:
-watt = joule per second
-802.11.g <-- speed 
-590 mW - transmit
-230 mW - receive
+%Energy calculation:
+%watt = joule per second
+%802.11.g <-- speed 
+%590 mW - transmit
+%230 mW - receive
+
+These results tells that using TCP as a transport layer for CoAP  is preferable in specific cases, even though it has a higher bandwidth than regular CoAP. 
+Such a case could for example be a constrained device which often has to collect data about the temperature for use in e.g. a weather application. Frequent data collection needs short delays to obtain better results and therefore CoAP over TCP is more suitable for this case. This device can however not be battery driven due to the energy calculation done in \cite{dz}. This constrained device should also have a sufficient amount of memory to be able to cope with the extra overhead as a result of using TCP/IP stack implementation. 
+These results however tells us that using UDP as a transport layer for CoAP is preferable in cases with very constrained devices, specially for battery driven devices and for devices that has a very tight memory space. An example for such a case is .... ??????? 
 
 
-On the other hand the results of the latency experiment shows that CoAP over TCP has a much better latency than regular CoAP in both a noiseless channel and in a noisy channel. 
 
-It is clearly from the results that it is advantageous to use TCP as a transport protocol in CoAP instead of UDP.
-
-From the results it is shown that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP.
-
-On the other side regular CoAP over TCP has a much better latency than regular CoAP.
+%It is clearly from the results that it is advantageous to use TCP as a transport protocol in CoAP instead of UDP.
+%
+%From the results it is shown that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP.
+%
+%On the other side regular CoAP over TCP has a much better latency than regular CoAP.
 
 % BANDWIDTH
 	% CALCULATIONS
