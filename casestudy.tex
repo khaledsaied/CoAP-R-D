@@ -26,24 +26,38 @@ The memory consumption are presented in table \ref{tab:memory}:
 The RAM measurements are done by using an AVR-tool called avr-size. The tool measures only the size of the initialized variables \cite{Check55:online}.
 
 \subsection{Energy}
-The bandwidth measurements can easily be converted to the amount of energy consumed by a specific device. For calculating the energy consumption, different factors has to be known. These are the energy consumption of the WiFi component (HDG204) in the WiFi shield both for transmitting and receiving data and the data rate of the WiFi component. These data are read from the datasheet for the HDG2014 component \cite{hdg204:datasheet}. The used WiFi component supports the standard 802.11.g which provides a rate up to 54 Mbit/s. It is however assumed that the rate for the transmissions is always 54 Mbit/s even though it can fluctuate. 
+The bandwidth measurements can easily be converted to the amount of energy consumed by a specific device. For calculating the energy consumption, different factors has to be known. These are the energy consumption of the WiFi component (HDG204) in the WiFi shield, both for transmitting and receiving data, and the data rate of the WiFi component. These data are read from the datasheet for the HDG2014 component \cite{hdg204:datasheet}. The used WiFi component supports the standard 802.11.g which provides a rate up to 54 Mbit/s. It is however assumed that the rate for the transmissions is always 54 Mbit/s even though it can fluctuate. 
+For the calculations bandwidth measurements from the complete transaction scenario are used. 
+The calculations for the energy consumption are:
+\begin{equation}\label{eq:tx}
+TxEnergyCon = \frac{6310 byte}{7077888 byte/s } \cdot 590 J/s = 0.526 mJ   
+\end{equation}
+\begin{equation}\label{eq:rx}
+RxEnergyCon = \frac{4232 byte}{7077888 byte/s } \cdot 230 J/s = 0.138 mJ   
+\end{equation}
+\begin{equation}\label{eq:total}
+TotalEnergyCon = 0.526 mJ + 0.138 mJ =0.664 mJ 
+\end{equation}
 
+Equation \ref{eq:tx} and \ref{eq:rx} are the energy consumptions for respectively transmitting and receiving of data. 
+Equation \ref{eq:total} is the total energy consumption for the complete transaction scenario.
 
-The calculations are shown below:
+An Arduino Due powered with a 9V Alkaline battery running the complete communication scenario repeatedly has a lifetime of approximately 1,531.81 years, as calculated: 
+\begin{equation}\label{eq:years}
+Lifetime = \frac{17820000 mJ }{(2 \cdot 0.664 mJ) + 2340000 mJ } \cdot \frac{1}{24} \cdot \frac{1}{365} = 1,531.81 years
+\end{equation}
+% (17820000/((2*0,664)+2340000))
 
-packet size/data rate  => time for  sending this packet
-time for  sending this packet * transmit energy consumption
-(6310/7077888)*590 = 0,5259902389 milli Joule
-
-time for  sending this packet * receive energy consumption
-(4232/7077888)*230 = 0,1375212493 milli Joule
-
+%bandwidth size (bytes)/data rate (bytes/s)  => time for  sending this packet
+%time for  sending this packet * transmit energy consumption
+%(6310/7077888)*590 = 0,5259902389 milli Joule
+%time for  sending this packet * receive energy consumption
+%(4232/7077888)*230 = 0,1375212493 milli Joule
 %Energy calculation:
 %watt = joule per second
 %802.11.g <-- 54Mbit/per second (wireless rate) = 7077888 bytes/per second 
 %590 mW - transmit energy consumption
 %230 mW - receive energy consumption
-
 %calculation...
 %\textbf{En god ide er at maale energiforbruge / beregne det i joule. Giver et konkret svar om den kan bruges i specifikke typer af constraint devices}
 
