@@ -7,7 +7,7 @@ In the following experiments the bandwidth of a \emph{single packet transaction}
 
 \subsubsection{Single Packet Transaction}
 This experiment is done where the client transmits a single packet, containing an arbitrary number, simulating a temperature measurement. \figurename{\ref{fig:singlepacket}} shows the results for a single packet transaction scenario, where NON-CoAP and CON-CoAP are the two different settings for CoAP.
-The figure shows the separation of bytes at each layer. The separation was read from the packet details in the Wireshark caption. 
+The figure shows the separation of bytes at each layer for the sent packets. The acknowledgement (ACK) packets is omitted for CON-CoAP and CoAP over TCP. The data was read using the packet details in the Wireshark-tool. 
 
 %NON-CoAP is non-confirmable which means that the
 \begin{figure}[bht]
@@ -66,6 +66,7 @@ The figure shows the separation of bytes at each layer. The separation was read 
 \end{figure}
 It can be observed that CoAP over TCP overall has a lager packet than CoAP. This is primarily because of the TCP layer which has a 12 byte bigger overhead than UDP.
 Though the CoAP layer in the CoAP over TCP packet is 1 byte shorter than CoAP, because of the modification made in the header as mentioned in section \ref{sec:background}.
+It can also be observed that NON-CoAP and CON-CoAP packets has exact same length and separation of bytes, and the reason for this is that the only difference is that CON-CoAP expects an acknowledgement from the server. 
 %TODO: Why is ethernet 16 bytes???
 
 %With help of the measurements the energy consumption is calculated for the three packets. The calculation is shown below:
@@ -74,7 +75,7 @@ Though the CoAP layer in the CoAP over TCP packet is 1 byte shorter than CoAP, b
 %TCP minimum header size is 20 bytes, but because of using options among others timestamp option, it is measured to 32 bytes. Timestamp option is enabled par default on Ubuntu 16.10.
 
 \subsubsection{Complete Communication Scenario}
-This experiment is done where the client transmits randomly generated numbers with an interval of 30 seconds, simulating temperature measurements, for a timespan of 30 minutes.
+This experiment is done where the client transmits randomly generated numbers with an interval of 30 seconds, simulating temperature measurements, for a complete timespan of 30 minutes.
 It is a complete scenario because the whole communication scenario is captured, from it is initialised until it is terminated. The caption includes both the transmitted and the received packets.
 
 \figurename{\ref{fig:completescenario}} shows the results for a complete scenario, where NON-CoAP is omitted as it is not comparable with the two reliable CoAP versions, CON-CoAP and CoAP over TCP. 
@@ -119,10 +120,10 @@ It is a complete scenario because the whole communication scenario is captured, 
 It is clear from the results that CoAP over TCP has a significantly larger overhead than CON-CoAP.
 
 \subsection{Latency}
-In the following experiments the latency (RTT) is measured for the two setups in two scenarios, one with a noiseless channel and the other with a simulated noisy channel. The latency has an impact on the energy consumption. A long latency means less sleeping time which is a crucial element for a constrained to be able to save energy.
+In the following experiments the latency is measured by using the RTT metric for the two setups in two scenarios, one with a noiseless channel and the other with a simulated noisy channel. The latency has an impact on the energy consumption. A long latency means less sleeping time which is a crucial element for a constrained device to be able to save energy.
 The noisy channel is emulated using the NetEM tool which provides Network Emulation functionality for testing protocols \cite{netem19:online}. 
 
-These experiments are all done where the client transmits a total number of 60 transmissions. The RTT is calculated from the time a packet is sent until it receives the associated acknowledgement.
+These experiments are all done where the client transmits a total number of 60 transmissions with the exact same packets used in the bandwidth experiments with a 8 byte length payload. The RTT is calculated from the time a packet is sent until it receives the associated acknowledgement with help of the timestamps read using the Wireshark-tool on the client-side.
 
 %Measure RTT values %which is the time from sending a package to receiving the acknowledgement.
 %More latency = less time to sleep = more energy consumption
