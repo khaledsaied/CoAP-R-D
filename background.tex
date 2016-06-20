@@ -1,4 +1,4 @@
-\section{Background}
+\section{Background}\label{sec:background}
 
 \subsection{Constrained Application Protocol}
 CoAP is a lightweight web transfer protocol specialized for use with constrained devices and is currently a Proposed Standard RFC made by The Internet Engineering Task Force (IETF) \cite{Inter93:online}. CoAP is designed for M2M communication which includes the device-to-cloud connectivity model.
@@ -25,6 +25,7 @@ The header contains following fields:
 	\item Message ID is an identifier for relating acknowledgements to CON-messages and detection of duplicated messages as well.
 \end{list}
 
+CoAP is in many ways similar to HTTP and thus it is easy to convert CoAP messages to HTTP and vice versa. This is normally done by use of a proxy, which for example can be used as a broker between embedded devices and the web. 
 
 %not asynchronous - has to wait for an aknowledged
 
