@@ -6,6 +6,8 @@ These results tells that using TCP as a transport layer for CoAP  is preferable 
 Such a case could for example be a constrained device which often has to collect data about the temperature for use in e.g. a weather application. Frequent data collection needs short delays to obtain better results and therefore CoAP over TCP is more suitable for this case. This device can however not be battery driven due to the energy calculation done in section \ref{sec:casestudy}. This constrained device should also have a sufficient amount of memory to be able to cope with the extra overhead as a result of using TCP/IP stack implementation. 
 These results however tells that using UDP as a transport layer for CoAP is preferable in cases with very constrained devices, specially for battery driven devices and for devices that has a very tight memory space. An example for such a case is .... ??????? 
 
+%NEW
+These results can be explained because of a significant difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
 
 %It is clearly from the results that it is advantageous to use TCP as a transport protocol in CoAP instead of UDP.
 %

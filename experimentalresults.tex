@@ -7,7 +7,7 @@ In the following experiments the bandwidth of a \emph{single packet transaction}
 
 \subsubsection{Single Packet Transaction}
 This experiment is done where the client transmits a single packet, containing an arbitrary number, simulating a temperature measurement. \figurename{\ref{fig:singlepacket}} shows the results for a single packet transaction scenario, where NON-CoAP and CON-CoAP are the two different settings for CoAP.
-The figure shows the separation of bytes at each layer for the sent packets. The acknowledgement (ACK) packets is omitted for CON-CoAP and CoAP over TCP. The data was read using the packet details in the Wireshark-tool. 
+The figure shows the separation of bytes at each layer for the sent packets. The acknowledgement (ACK) packets is omitted for CON-CoAP and CoAP over TCP. The data was read using the packet details in the Wireshark tool. 
 
 %NON-CoAP is non-confirmable which means that the
 \begin{figure}[bht]
@@ -123,19 +123,20 @@ It is clear from the results that CoAP over TCP has a significantly larger overh
 In the following experiments the latency is measured by using the RTT metric for the two setups in two scenarios, one with a noiseless channel and the other with a simulated noisy channel. The latency has an impact on the energy consumption. A long latency means less sleeping time which is a crucial element for a constrained device to be able to save energy.
 The noisy channel is emulated using the NetEM tool which provides Network Emulation functionality for testing protocols \cite{netem19:online}. 
 
-These experiments are all done where the client transmits a total number of 60 transmissions with the exact same packets used in the bandwidth experiments with a 8 byte length payload. The RTT is calculated from the time a packet is sent until it receives the associated acknowledgement with help of the timestamps read using the Wireshark-tool on the client-side.
+These experiments are all done where the client transmits a total number of 60 transmissions with the exact same packets used in the bandwidth experiments with a 8 byte length payload. The RTT is calculated from the time a packet is sent until it receives the associated acknowledgement with help of the timestamps read using the Wireshark tool on the client-side.
 
 %Measure RTT values %which is the time from sending a package to receiving the acknowledgement.
 %More latency = less time to sleep = more energy consumption
 %Spredning/fordeling/varians af delay variations 
-
-On \figurename{\ref{fig:latencynoiseless}} the results of the first scenario with a noiseless channel for the respectively CON-CoAP and CoAP over TCP setup are plotted into two histograms. 
 \begin{figure}[bht]
 	\centering
 	\includegraphics[width=3.5in]{gfx/latency-clean}
 	\caption{Latency for CON-CoAP and CoAP over TCP in a noiseless channel.}
 	\label{fig:latencynoiseless}
 \end{figure}
+On \figurename{\ref{fig:latencynoiseless}} the results of the first scenario with a noiseless channel for respectively CON-CoAP and CoAP over TCP setup are plotted into two histograms. 
+From these results it is observed that the latency varies from 0 seconds up to 3 seconds for CoAP and from 0 seconds up to 0.4 seconds for CoAP over TCP. Thereby it is clear that CoAP over TCP has a faster round trip than CoAP in this setup. 
+
 %\begin{figure}[bht]
 %	\centering
 %	\includegraphics[width=3in]{gfx/coapovertcp}
@@ -143,12 +144,12 @@ On \figurename{\ref{fig:latencynoiseless}} the results of the first scenario wit
 %	\label{fig:coaptcplatency}
 %\end{figure}
 
-From the results it is observed  that the latency varies from 0 seconds up to 3 seconds for CoAP over UDP and from 0 seconds up to 0.4 seconds for CoAP over TCP. Thereby it is clear that CoAP over TCP has a faster round trip than CoAP over UDP. 
 
-These results can be explained because of a significant difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
+%These results can be explained because of a significant difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
 
 %More lost packet = more packet to send = more energy consumption
-On \figurename{\ref{fig:latencynoisy}} the results of the second scenario with an emulated noisy channel, with 25\% packet-loss, for the respectively CON-CoAP and CoAP over TCP setup are plotted into two histograms. 
+On \figurename{\ref{fig:latencynoisy}} the results of the second scenario with an emulated noisy channel, with 25\% packet-loss, for the respectively CON-CoAP and CoAP over TCP setup are plotted into two histograms.
+The results for communication in a noisy channel shows, as in previous observations, that CoAP over TCP for this setup has a better round trip than CON-CoAP. %It is also means that the CoAP over UDP will perform worse in noisy channels compared to it's performance in noiseless channel. 
 \begin{figure}[bht]
 	\centering
 	\includegraphics[width=3.5in]{gfx/latencynoise}
@@ -162,4 +163,3 @@ On \figurename{\ref{fig:latencynoisy}} the results of the second scenario with a
 %	\label{fig:coapovertcploss}
 %\end{figure}
 
-The results for communication in a noisy channel also confirms the previous observations, showing that CoAP over TCP overall has a better round trip than CON-CoAP. %It is also means that the CoAP over UDP will perform worse in noisy channels compared to it's performance in noiseless channel.
