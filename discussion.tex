@@ -1,5 +1,22 @@
 \section{Discussion}\label{sec:discussion}
-The purpose of the comparison is to investigate if CoAP over TCP is qualified for use in constrained devices. The results of the bandwidth experiments shows that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP, for both the single packet transaction scenario and the complete communication scenario. This was expected as previous work has shown that TCP is more power consuming, which is most likely caused by the bandwidth. The case study shows that in both versions of CoAP the energy consumption is very low making the difference near insignificant. However, it is also shown in the case study that for a longer timespan the difference in energy consumption is very significant, unlike the scenario with a short timespan. 
+The purpose of the comparison is to investigate if CoAP over TCP is qualified for use in constrained devices.
+
+%Energy measurements  ---> case study
+From the case study it is clear that CoAP over TCP has a better lifetime than regular CoAP. 
+Even though bandwidth is bigger in CoAP over TCP = not much influence.
+Most influence is latency...
+
+handshake tcp
+
+wrong results iotivity coap
+
+layer latency
+californium comparison = good results not wrong!
+
+
+
+
+ The results of the bandwidth experiments shows that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP, for both the single packet transaction scenario and the complete communication scenario. This was expected as previous work has shown that TCP is more power consuming, which is most likely caused by the bandwidth. The case study shows that in both versions of CoAP the energy consumption is very low making the difference near insignificant. However, it is also shown in the case study that for a longer timespan the difference in energy consumption is very significant, unlike the scenario with a short timespan. 
 
 On the other hand the results of the latency experiments shows that CoAP over TCP has a much better latency than regular CoAP in both a noiseless channel and in a noisy channel. 
 These results tells that using TCP as a transport layer for CoAP  is preferable in specific cases, even though it has a higher bandwidth than regular CoAP. 
