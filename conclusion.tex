@@ -1,3 +1,15 @@
 \section{Conclusion}\label{sec:conclusion}
 %Conclusion and Futurework
-The conclusion goes here.
+In this paper, two different versions of CoAP has been compared; one running over UDP and another running over TCP. The two different versions of the CoAP protocol have been experimentally evaluated with the purpose of comparing them and thereby being able to see if it is advantageous, in a constrained device, to use TCP as a transport protocol in CoAP instead of UDP. 
+To achieve this, comparison experiments with bandwidth and latency are made using the IoTivity framework implementation of both CoAP and CoAP over TCP. A case study was made to see how the results from the experiments will impact an Arduino Due with an Arduino WiFi shield, from an energy aspect, and how much memory the IoTivity implementation will consume. 
+Both the results and the case study clearly show that CoAP over TCP has better energy performance than CoAP. 
+Thereby using TCP as a transport layer for CoAP is an advantage. 
+The CoAP implementation made by IoTivity has shown to have an unexpectedly big latency, in contrast to another implementation of CoAP called, Californium, which turned out to have approximately a factor 50 smaller latency. The reason for the big latency in the IoTivity implementation is not resolved and needs further research.  
+
+
+
+
+%In this paper, a detailed requirement description has been presented for a middleware solution that fully solves the interoperability challenge in an IoT context.			
+%The requirements, cross-platform, connectivity, discovery, data management and energy efficiency, was carefully chosen with the help of different research articles. The IoTivity framework has been chosen as a case study where the defined requirements were hold up against the framework. This was done by exploring the official documentation for IoTivity and by making different proof of concept applications running the IoTivity framework, which was necessary for confirming some of the most important aspects of an IoT middleware.
+%After validation of the IoTivity framework, it has been discussed how well the IoTivity framework lives up to be a standard by which billions of IoT devices will connect to each other and to the internet. 
+%The results of the discussion showed that the framework has the potential to be a standard, but needs a lot more improvements and development to fulfill all the necessary requirement

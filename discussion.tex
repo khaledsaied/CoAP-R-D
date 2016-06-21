@@ -1,30 +1,30 @@
 \section{Discussion}\label{sec:discussion}
-The purpose of the comparison is to investigate if CoAP over TCP is qualified for use in constrained devices.
+The purpose of the comparison is to evaluate if it is advantageous to use TCP as a transport protocol in CoAP instead of UDP, when CoAP is used for constrained IoT devices. 
 
 %Energy measurements  ---> case study
-From the case study it is clear that CoAP over TCP has a better lifetime than regular CoAP. 
-Even though bandwidth is bigger in CoAP over TCP = not much influence.
-Most influence is latency...
+The calculations in the case study, which are based on the experimental results, show that CoAP over TCP consumes less power than regular CoAP. Therefore the calculations in the case study also shows that CoAP over TCP, if used in Arduino Due, will give a better lifetime than regular CoAP. 
+It is clear from the results that the bandwidth does not have a big influence on the overall energy consumption even though the results of the bandwidth experiments show that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP, for both the single packet transaction scenario and the complete communication scenario. 
+%This was expected as previous work has shown that TCP is more power consuming, which is most likely caused by the bandwidth. 
+%The case study shows that in both versions of CoAP the energy consumption is very low making the difference near insignificant. However, it is also shown in the case study that for a longer timespan the difference in energy consumption is very significant, unlike the scenario with a short timespan. 
 
-handshake tcp
+Latency has much more effect on the results for energy consumption, as it prevents the constrained device to be in power-saving mode while waiting for an acknowledgement. 
+The reason to why TCP performs good in the latency results is due to a persistent connection. 
+On the other hand, if TCP is used in a not-persistent connection it will have a much worse latency \cite{ludovici2013tinycoap}. But still the results, showing that CoAP has a bad latency performance compared to CoAP over TCP, are unexpected.
+The fact that CoAP sends acknowledgement using the application layer, whereas CoAP over TCP sends acknowledgement already from the transport layer, has an impact, but not enough to explain the big difference in the results. 
+In \cite{hayden1997optimizing} it is observed that overheads for crossing layers in different systems can be up to 50 \textmu s, which is a very insignificant number compared with the results in the experiments.
+%handshake tcp
 
-wrong results iotivity coap
+To confirm the results of the latency experiment with CoAP, a similar experiment with a total of 20 transmissions are made, using Californium \cite{Calif82:online}, which is another CoAP implementation, made in Java. The results give an average latency of 15.22 ms against 813.15 ms. 
+A big difference is observed in the different measurements, confirming that the CoAP protocol is able to achieve a much better latency performance depending on the implementation. It is unknown, why IoTivity compared to Californium, has a poor latency performance.
+It can be concluded from the results of the experiments made using the IoTivity implementations of CoAP and CoAP over TCP, that from an energy perspective, it is advantageous to use TCP as a transport protocol in CoAP instead of UDP.
+There is however, a single case where CoAP is advantagous to use, and this is when memory is in focus, because CoAP over TCP will probably be more memory consuming than CoAP.  
 
-layer latency
-californium comparison = good results not wrong!
+%On the other hand the results of the latency experiments shows that CoAP over TCP has a much better latency than regular CoAP in both a noiseless channel and in a noisy channel. 
+%These results tells that using TCP as a transport layer for CoAP  is preferable in specific cases, even though it has a higher bandwidth than regular CoAP. 
+%Such a case could for example be a constrained device which often has to collect data about the temperature for use in e.g. a weather application. Frequent data collection needs short delays to obtain better results and therefore CoAP over TCP is more suitable for this case. This device can however not be battery driven due to the energy calculation done in section \ref{sec:casestudy}. This constrained device should also have a sufficient amount of memory to be able to cope with the extra overhead as a result of using TCP/IP stack implementation. 
+%These results however tells that using UDP as a transport layer for CoAP is preferable in cases with very constrained devices, specially for battery driven devices and for devices that has a very tight memory space. An example for such a case is .... ??????? 
 
 
-
-
- The results of the bandwidth experiments shows that the bandwidth for CoAP over TCP is higher than the bandwidth for regular CoAP, for both the single packet transaction scenario and the complete communication scenario. This was expected as previous work has shown that TCP is more power consuming, which is most likely caused by the bandwidth. The case study shows that in both versions of CoAP the energy consumption is very low making the difference near insignificant. However, it is also shown in the case study that for a longer timespan the difference in energy consumption is very significant, unlike the scenario with a short timespan. 
-
-On the other hand the results of the latency experiments shows that CoAP over TCP has a much better latency than regular CoAP in both a noiseless channel and in a noisy channel. 
-These results tells that using TCP as a transport layer for CoAP  is preferable in specific cases, even though it has a higher bandwidth than regular CoAP. 
-Such a case could for example be a constrained device which often has to collect data about the temperature for use in e.g. a weather application. Frequent data collection needs short delays to obtain better results and therefore CoAP over TCP is more suitable for this case. This device can however not be battery driven due to the energy calculation done in section \ref{sec:casestudy}. This constrained device should also have a sufficient amount of memory to be able to cope with the extra overhead as a result of using TCP/IP stack implementation. 
-These results however tells that using UDP as a transport layer for CoAP is preferable in cases with very constrained devices, specially for battery driven devices and for devices that has a very tight memory space. An example for such a case is .... ??????? 
-
-%NEW
-These results can be explained because of a significant difference between the two protocols, which is that CoAP over UDP sends acknowledgement using the application layer whereas CoAP over TCP sends acknowledgement already from the transport layer. 
 
 %It is clearly from the results that it is advantageous to use TCP as a transport protocol in CoAP instead of UDP.
 %

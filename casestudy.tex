@@ -26,25 +26,37 @@ The memory consumption are presented in table \ref{tab:memory}:
 The RAM measurements are done by using an AVR-tool called avr-size. The tool measures only the size of the initialized variables \cite{Check55:online}.
 
 \subsection{Energy}
-For calculating the amount of energy that will be consumed if the aforementioned chosen devices was running the complete communication scenario experiment, different factors has to be known. These are the energy consumption of the WiFi component (HDG204) in the WiFi shield, both for transmitting and receiving data, and the data rate of the WiFi component. These data are read from the datasheet for the HDG2014 component \cite{hdg204:datasheet}. The used WiFi component supports the standard 802.11.g which provides a rate up to 54 Mbit/s. It is however assumed that the rate for the transmissions is always 54 Mbit/s even though it can fluctuate. 
+For calculating the amount of energy that will be consumed if the aforementioned chosen devices were running the complete communication scenario experiment, different factors has to be known. This is the energy consumption of the WiFi component (HDG204) in the WiFi shield, both for transmitting and receiving data, and the data rate of the WiFi component. These data are read from the datasheet for the HDG2014 component \cite{hdg204:datasheet}. The used WiFi component supports the standard 802.11.g which provides a rate up to 54 Mbit/s. It is however assumed that the rate for the transmissions is always 54 Mbit/s even though it can fluctuate. 
 
 It is assumed that the WiFi shield is in TX mode when transmitting, in RX mode after finished transmitting until the acknowledgement is received, and in power-saving mode in the rest of the time. Furthermore, worst case is assumed for the latency of the transactions. This gives a latency of 2.7 s for CON-CoAP and 0.4 s for CoAP over TCP.
 
 The calculations for the energy consumption for CON-CoAP are:
 \begin{equation}\label{eq:txcon}
-TxEnergyCon = \frac{4920 byte}{7077888 byte/s } \cdot 590 mJ/s = 0.41 mJ   
+\begin{aligned}
+TxEnergyCon &= \frac{4920 byte}{7077888 byte/s } \cdot 590 mJ/s 
+\\&= 0.41 mJ   
+\end{aligned}
 \end{equation}
 \begin{equation}\label{eq:rxcon}
-RxEnergyCon = (60 \cdot 2.7 s - \frac{4920 byte}{7077888 byte/s }) \cdot 230 mJ/s = 37259.84 mJ   
+\begin{aligned}
+RxEnergyCon &= \left( 60 \cdot 2.7 s - \frac{4920 byte}{7077888 byte/s } \right) \cdot 230 mJ/s 
+\\&= 37259.84 mJ   
+\end{aligned}
 \end{equation}
 %\begin{equation}\label{eq:rxcon}
 %RxEnergyCon = \frac{4140 byte}{7077888 byte/s } \cdot 230 mJ/s = 0.135 mJ   
 %\end{equation}
 \begin{equation}\label{eq:idlecon}
-IdleEnergyCon = (1800 s - 60 \cdot 2.7 s) \cdot 0.4 mJ/s = 655.2 mJ   
+\begin{aligned}
+IdleEnergyCon &= (1800 s - 60 \cdot 2.7 s) \cdot 0.4 mJ/s 
+\\&= 655.2 mJ   
+\end{aligned}
 \end{equation}
 \begin{equation}\label{eq:totalcon}
-TotalEnergyCon = 0.41 mJ + 37259.84 mJ +655.2 mJ = 37915.45 mJ %0.545 mJ 
+\begin{aligned}
+TotalEnergyCon &= 0.41 mJ + 37259.84 mJ +655.2 mJ 
+\\&= 37915.45 mJ %0.545 mJ 
+\end{aligned}
 \end{equation}
 
 Equation \ref{eq:txcon} and \ref{eq:rxcon} are the energy consumptions for respectively transmitting and receiving of data. Equation \ref{eq:idlecon} is the energy consumptions for being in idle state.
@@ -52,24 +64,39 @@ Equation \ref{eq:totalcon} is the total energy consumption for the complete comm
 
 The same calculations are also made for CoAP over TCP:
 \begin{equation}\label{eq:txtcp}
-TxEnergyCon = \frac{6310 byte}{7077888 byte/s } \cdot 590 J/s = 0.526 mJ   
+\begin{aligned}
+TxEnergyCon &= \frac{6310 byte}{7077888 byte/s } \cdot 590 J/s
+ \\&= 0.526 mJ   
+\end{aligned}
 \end{equation}
 \begin{equation}\label{eq:rxtcp}
-RxEnergyCon = (60 \cdot 0.4 s - \frac{6310 byte}{7077888 byte/s }) \cdot 230 J/s = 5519.79 mJ   
+\begin{aligned}
+RxEnergyCon &= (60 \cdot 0.4 s - \frac{6310 byte}{7077888 byte/s }) \cdot 230 J/s 
+\\&= 5519.79 mJ
+\end{aligned}   
 \end{equation}
 %\begin{equation}\label{eq:rxtcp}
 %RxEnergyCon = \frac{4232 byte}{7077888 byte/s } \cdot 230 J/s = 0.138 mJ   
 %\end{equation}
 \begin{equation}\label{eq:idletcp}
-IdleEnergyCon = (1800 s - 60 \cdot 0.4 s) \cdot 0.4 mJ/s = 710.4 mJ %655.2 mJ   
+\begin{aligned}
+IdleEnergyCon &= (1800 s - 60 \cdot 0.4 s) \cdot 0.4 mJ/s 
+\\&= 710.4 mJ %655.2 mJ 
+\end{aligned}  
 \end{equation}
 \begin{equation}\label{eq:totaltcp}
-TotalEnergyCon = 0.526 mJ + 5519.79 mJ + 710.4 mJ = 6230.72 mJ 
+\begin{aligned}
+TotalEnergyCon &= 0.526 mJ + 5519.79 mJ + 710.4 mJ 
+\\&= 6230.72 mJ 
+\end{aligned}
 \end{equation}
 
 An Arduino Due powered with a 9V Alkaline battery running the complete communication scenario with CON-CoAP repeatedly has a lifetime of approximately 7.38 hours, as calculated: 
 \begin{equation}\label{eq:concoaphours}
-Lifetime = \frac{17820000 mJ }{(2 \cdot 37915.45 mJ)+2340000} =7.38 hours %7.6153811 
+\begin{aligned}
+Lifetime &= \frac{17820000 mJ }{(2 \cdot 37915.45 mJ)+2340000} 
+\\&=7.38 hours %7.6153811 
+\end{aligned}
 \end{equation}
 %\begin{equation}\label{eq:years}
 %Lifetime = \frac{17820000 mJ }{(2 \cdot 0.545 mJ)} \cdot \frac{1}{24} \cdot \frac{1}{365} = 1,866.28 years
@@ -77,7 +104,10 @@ Lifetime = \frac{17820000 mJ }{(2 \cdot 37915.45 mJ)+2340000} =7.38 hours %7.615
 
 For CoAP over TCP the lifetime is approximately 7.58 hours, as calculated:
 \begin{equation}\label{eq:years}
-Lifetime = \frac{17820000 mJ }{(2 \cdot 6230.72 mJ)+2340000 } = 7.58 hours %7.6153803 
+\begin{aligned}
+Lifetime &= \frac{17820000 mJ }{(2 \cdot 6230.72 mJ)+2340000 } 
+\\&= 7.58 hours %7.6153803
+\end{aligned} 
 \end{equation}
 %\begin{equation}\label{eq:years}
 %Lifetime = \frac{17820000 mJ }{(2 \cdot 0.664 mJ)+2340000 } \cdot \frac{1}{24} \cdot \frac{1}{365} = 1,531.81 years

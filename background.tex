@@ -16,7 +16,7 @@ The message format for CoAP, illustrated in \figurename{\ref{fig:msgformatcoap}}
 	\label{fig:msgformatcoap}
 \end{figure}
 
-The header contains following fields: 
+The header contains the following fields: 
 \begin{list}{-}{}
 	\item Version (ver) indicates the version of the CoAP protocol.
 	\item Type (T) indicates the type of the message e.g. non-confirmable.
@@ -36,10 +36,10 @@ CoAP is in many ways similar to HTTP and thus it is easy to convert CoAP message
 \subsection{Constrained Application Protocol over TCP}
 CoAP over TCP is an Active Internet-Draft made by IETF. 
 In this draft it is proposed to use TCP as a transport protocol instead of UDP.
-CoAP over TCP is made for use for certain environments that benefits from using CoAP directly over a reliable communication channel which easily can come through firewalls, provides additional information to NAT, has longer session life, and is able to send requests asynchronously. 
+CoAP over TCP is made for use for certain environments that benefits from using CoAP directly over a reliable communication channel which can easily come through firewalls, provides additional information to NAT, has longer session life, and is able to send requests asynchronously. 
 
 CoAP over TCP is based on the original version of CoAP with some modifications. 
-The use of TCP as a transport layer protocol removes the need for handling reliability, congestion control, and other features, which already exist in TCP, at the CoAP level.
+The use of TCP as a transport layer protocol removes the need for handling reliability, congestion control, and other features, which already exist in TCP at the CoAP level.
 Since it is not necessary to handle reliability at the CoAP level, all the communication in the CoAP over TCP are by use of non-confirmable (NON) messages and thereby the fields, Type (T) and Message ID, are unnecessary and thus removed from the header. 
 The Message ID is also removed because TCP handles duplication detection as well.
 Moreover the version (ver) is also removed from the header. The reason for this change is not specified in the draft.
