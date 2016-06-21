@@ -8,7 +8,14 @@ Previously research has been done \cite{interoperabilityChallenge} in the IoTivi
 
 IoTivity make use of the CoAP protocol as the only application protocol. 
 A new version of the IoTivity framework has been published recently, where the community behind IoTivity has implemented a solution to connect IoT devices to the Cloud \cite{IoTiv3:online}. The solution is based on a newer draft for CoAP \cite{ietf-core-coap-tcp-tls-02} which presents a modified CoAP that runs over TCP instead of UDP, referred to as CoAP over TCP.
-The TCP protocol is more complex compared to the UDP protocol and thus it is in general more resource consuming \cite{giannoulis2009tcp}.
+The TCP protocol is more complex compared to the UDP protocol and thus it is in general more resource consuming \cite{giannoulis2009tcp}. \figurename{\ref{fig:coapstack}} illustrates the CoAP and the CoAP over TCP stacks.
+\begin{figure}[bht]
+	\centering
+	\includegraphics[width=3in]{gfx/coapstack}
+	\caption{The CoAP and the CoAP over TCP stacks.}
+	\label{fig:coapstack}
+\end{figure}
+
 %it is in general not easy to employ on constrained devices. 
 
 % More details from papers about tcp vs udp memory consumption
