@@ -28,8 +28,7 @@ The RAM measurements are done by using an AVR-tool called avr-size. The tool mea
 \subsection{Energy}
 For calculating the amount of energy that will be consumed if the aforementioned chosen devices was running the complete communication scenario experiment, different factors has to be known. These are the energy consumption of the WiFi component (HDG204) in the WiFi shield, both for transmitting and receiving data, and the data rate of the WiFi component. These data are read from the datasheet for the HDG2014 component \cite{hdg204:datasheet}. The used WiFi component supports the standard 802.11.g which provides a rate up to 54 Mbit/s. It is however assumed that the rate for the transmissions is always 54 Mbit/s even though it can fluctuate. 
 
-It is assumed that the WiFi shield is in TX mode when transmitting, in RX mode after finished transmitting and until the acknowledgement is received and in power-saving mode in the rest of the time. Furthermore, worst case is assumed for the latency of the transactions. This gives a latency of 2.7 s for CON-CoAP and 0.4 s for CoAP over TCP.
-
+It is assumed that the WiFi shield is in TX mode when transmitting, in RX mode after finished transmitting until the acknowledgement is received, and in power-saving mode in the rest of the time. Furthermore, worst case is assumed for the latency of the transactions. This gives a latency of 2.7 s for CON-CoAP and 0.4 s for CoAP over TCP.
 
 The calculations for the energy consumption for CON-CoAP are:
 \begin{equation}\label{eq:txcon}
